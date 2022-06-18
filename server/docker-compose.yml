@@ -1,0 +1,7 @@
+version: '3'
+services:
+  activity_server:
+    build: .
+    image: msc_activity_tracker:latest
+    ports:
+      - '8080:8080'

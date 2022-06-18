@@ -1,0 +1,10 @@
+model:
+  path: resources/bilstm.pt
+  input_size: 6
+  hidden_size: 128
+  num_layers: 1
+  output_size: 6
+  bidirectional: True
+
+cache:
+  max_size: 300
