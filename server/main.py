@@ -4,9 +4,8 @@ from flask_cors import CORS
 from api.finetuning import FineTuningSubmit, FineTuningStart
 from api.measurements import MeasurementsApi
 import yaml
-import torch
 
-from extensions import api, classifier
+from extensions import api
 
 def create_app():
     print("Initializing app")
@@ -19,10 +18,6 @@ def create_app():
     api.add_resource(FineTuningSubmit, '/tuning/submit')
     api.add_resource(FineTuningStart, '/tuning/start')
     api.init_app(app)
-
-    classifier.load_state_dict(torch.load(config['model']['path'], map_location="cpu"))
-    classifier.cpu()
-    classifier.eval()
     return app
 
 if __name__ == '__main__':

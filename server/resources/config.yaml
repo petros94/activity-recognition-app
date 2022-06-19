@@ -1,10 +1,22 @@
 model:
+  type: lstm
   path: resources/bilstm.pt
-  input_size: 6
-  hidden_size: 128
-  num_layers: 1
-  output_size: 6
-  bidirectional: True
+  args:
+    input_size: 6
+    hidden_size: 256
+    num_layers: 1
+    output_size: 6
+    bidirectional: True
+
+#model:
+#  type: transformer
+#  path: resources/best_tr_model.pth
+#  args:
+#    input_size: 6
+#    d_model: 16
+#    dim_feedforward: 256
+#    num_layers: 4
+#    output_size: 6
 
 cache:
   max_size: 300

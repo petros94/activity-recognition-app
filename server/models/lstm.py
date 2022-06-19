@@ -22,11 +22,3 @@ class LSTM(nn.Module):
         cat = torch.cat((h[-1, :, :], h[-2, :, :]), dim=1) if self.bidirectional else h[-1, :, :]
         x = self.fc(cat)
         return x.view(-1, self.output_size)
-
-
-def predict(model, x):
-    x = x.unsqueeze(1)
-    model.eval()
-    with torch.no_grad():
-        y_pred = model.forward(x).squeeze(1)
-        return LABELS[F.softmax(y_pred).argmax(-1).numpy()[0]], F.softmax(y_pred).max().item()

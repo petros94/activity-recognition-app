@@ -5,7 +5,7 @@ import numpy as np
 import time
 
 from extensions import classifier, preds_cache
-from model import predict
+from models.factory import predict
 import logging
 
 class MeasurementsApi(Resource):

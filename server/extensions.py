@@ -3,17 +3,14 @@ import yaml
 from flask_restful import Api
 
 from constants import LABELS
-from model import LSTM
+
+from models.factory import load_model
 from repository import InMemoryStorage
 
 with open("resources/config.yaml", "r") as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
-classifier = LSTM(input_size=config['model']['input_size'],
-                      hidden_size=config['model']['hidden_size'],
-                      num_layers=config['model']['num_layers'],
-                      output_size=config['model']['output_size'],
-                      bidirectional=config['model']['bidirectional'])
+classifier = load_model()
 
 api = Api()
 

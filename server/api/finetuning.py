@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from constants import LABELS
 from extensions import calibration_cache, classifier, preds_cache
 from finetuning import HARDataset, train_model
-from model import predict
+from models.factory import predict
 
 with open("resources/config.yaml", "r") as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
